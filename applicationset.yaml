@@ -9,6 +9,7 @@ spec:
         - cluster: airflow-t1
           url: https://kubernetes.default.svc
           env: dev
+          valueFile: sample-values-CeleryExecutor.yaml
         - cluster: airflow-t2
           url: https://kubernetes.default.svc
           env: dev
@@ -21,6 +22,9 @@ spec:
         repoURL: https://github.com/pallavtyagi/airflow-helm.git
         targetRevision: main
         path: charts/airflow/
+        helm:
+          valueFiles:
+          - '{{valueFile}}'
       destination:
         server: '{{url}}'
         namespace: '{{cluster}}'
