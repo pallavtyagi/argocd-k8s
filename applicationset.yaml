@@ -26,7 +26,6 @@ spec:
         helm:
           valueFiles:
           - '{{valueFile}}'
-        kustomize: {}
       destination:
         server: '{{url}}'
         namespace: '{{cluster}}'
